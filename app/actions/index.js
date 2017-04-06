@@ -10,7 +10,7 @@ const action = (type, payload = null) => (payload) => ({ type, payload });
 const appActions = {
   onIncrementClick: action(INCREMENT_COUNTER),
   onDecrementClick: action(DECREMENT_COUNTER),
-  onAPIClick: action(FETCH_SCORES_STARTED),
+  onRefreshScoresClick: action(FETCH_SCORES_STARTED),
 };
 
 export default appActions;

@@ -8,35 +8,41 @@ const {
   View,
 } = ReactNative;
 
-
 import appConnector from '../selectors/';
 import appActions from '../actions/';
 
 import Button from '../components/button';
+import Game from '../components/game';
 
 const StatTicker = React.createClass({
  render() {
    return (
      <View style={styles.container}>
        <TouchBar>
-         <View style={{ backgroundColor: 'red', flex: 1}} />
-         <Button title="Test123" onClick={() => alert('hello')} />
+         {this.props.scores.map((game, idx) => {
+            return (
+              <Game
+                key={idx}
+                label={game.label}
+              />
+            );
+         })}
        </TouchBar>
 
-
-       <Text style={styles.welcome}>
-         Welcome to React Native macOS!
-       </Text>
-
-       <Button title="+" onClick={() => this.props.onIncrementClick()} />
-       <Text style={styles.instructions}>{this.props.counterValue}</Text>
-       <Button title="-" onClick={() => this.props.onDecrementClick()} />
-
-       <Button title="API Request" onClick={() => this.props.onAPIClick()} />
+       <Text style={styles.header}>{'StatTicker™'}</Text>
+       <Button title="Refresh" onClick={() => this.props.onRefreshScoresClick()} />
      </View>
    );
  }
 });
+
+// Counter Example
+/*
+  <Text style={styles.welcome}>{'Counter Example'}</Text>
+  <Button title="+" onClick={() => this.props.onIncrementClick()} />
+  <Text style={styles.instructions}>{this.props.counterValue}</Text>
+  <Button title="-" onClick={() => this.props.onDecrementClick()} />
+*/
 
 const styles = StyleSheet.create({
  container: {
@@ -45,15 +51,10 @@ const styles = StyleSheet.create({
    alignItems: 'center',
    backgroundColor: '#F5FCFF',
  },
- welcome: {
+ header: {
    fontSize: 20,
    textAlign: 'center',
    margin: 10,
- },
- instructions: {
-   textAlign: 'center',
-   color: '#333333',
-   marginBottom: 5,
  },
 });
 
