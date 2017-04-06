@@ -5,7 +5,7 @@ import { getGames } from './raw-selectors';
 
 export const getScores = createSelector(
   [getGames],
-  (games) => games.map(game => 
+  (games) => games.map(game => {
     const home = R.path(['teams', 'home', 'team', 'name'], game);
     const homeScore = R.path(['teams', 'home', 'score'], game);
     const away = R.path(['teams', 'away', 'team', 'name'], game);
