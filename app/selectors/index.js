@@ -3,9 +3,11 @@ import { createStructuredSelector } from 'reselect';
 import {
   getCounterValue
 } from './raw-selectors';
+import { getScores } from './scores';
 
-const counterConnector = createStructuredSelector({
+const appConnector = createStructuredSelector({
   counterValue: getCounterValue,
+  scores: getScores,
 });
 
-export default counterConnector;
+export default appConnector;

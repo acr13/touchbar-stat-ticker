@@ -7,8 +7,10 @@ import {
 
 const action = (type, payload = null) => (payload) => ({ type, payload });
 
-export const counterActions = {
+const appActions = {
   onIncrementClick: action(INCREMENT_COUNTER),
   onDecrementClick: action(DECREMENT_COUNTER),
   onAPIClick: action(FETCH_SCORES_STARTED),
 };
+
+export default appActions;

@@ -1,20 +1,29 @@
 import React from 'react';
 import ReactNative from 'react-native-macos';
 import { connect } from 'react-redux';
+import TouchBar from 'react-native-touchbar';
 const {
   StyleSheet,
   Text,
   View,
 } = ReactNative;
 
+
+import appConnector from '../selectors/';
+import appActions from '../actions/';
+
 import Button from '../components/button';
-import counterConnector from '../selectors/counter';
-import { counterActions } from '../actions/';
 
 const StatTicker = React.createClass({
  render() {
    return (
      <View style={styles.container}>
+       <TouchBar>
+         <View style={{ backgroundColor: 'red', flex: 1}} />
+         <Button title="Test123" onClick={() => alert('hello')} />
+       </TouchBar>
+
+
        <Text style={styles.welcome}>
          Welcome to React Native macOS!
        </Text>
@@ -48,4 +57,4 @@ const styles = StyleSheet.create({
  },
 });
 
-export default connect(counterConnector, counterActions)(StatTicker);
+export default connect(appConnector, appActions)(StatTicker);

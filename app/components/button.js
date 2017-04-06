@@ -14,7 +14,7 @@ const MyButton = ({ title, onClick }) => {
       type={'momentaryLight'}
       style={styles.button}
       title={title}
-      onClick={onClick}
+      onClick={onClick ? onClick : () => null}
     />
   );
 };
